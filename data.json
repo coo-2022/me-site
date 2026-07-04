@@ -1,0 +1,79 @@
+{
+ "stats": {
+  "docs": 6,
+  "projects": 7,
+  "chats": 5321,
+  "sources": 0
+ },
+ "news": null,
+ "agents": null,
+ "projects": [
+  {
+   "name": "OpenEarth",
+   "desc": "暂无简介",
+   "status": "进行中"
+  },
+  {
+   "name": "AgentWorld",
+   "desc": "暂无简介",
+   "status": "进行中"
+  },
+  {
+   "name": "SimpleRL",
+   "desc": "暂无简介",
+   "status": "进行中"
+  },
+  {
+   "name": "Majhong",
+   "desc": "暂无简介",
+   "status": "进行中"
+  },
+  {
+   "name": "TradeFun",
+   "desc": "暂无简介",
+   "status": "进行中"
+  },
+  {
+   "name": "ZuiTi",
+   "desc": "暂无简介",
+   "status": "进行中"
+  },
+  {
+   "name": "XianShengPro",
+   "desc": "暂无简介",
+   "status": "进行中"
+  }
+ ],
+ "docs": [
+  {
+   "title": "本机RL训练方案 2026-07",
+   "date": "2026-07",
+   "link": "./garden/corpus/research/本机RL训练方案_2026-07"
+  },
+  {
+   "title": "未来RL规模与算力趋势 2026-06",
+   "date": "2026-06",
+   "link": "./garden/corpus/research/未来RL规模与算力趋势_2026-06"
+  },
+  {
+   "title": "强化学习研究热点调研 2026-06",
+   "date": "2026-06",
+   "link": "./garden/corpus/research/强化学习研究热点调研_2026-06"
+  },
+  {
+   "title": "大模型推理加速技术调研 2026-07",
+   "date": "2026-07",
+   "link": "./garden/corpus/research/大模型推理加速技术调研_2026-07"
+  },
+  {
+   "title": "后训练基础设施调研 2026-06",
+   "date": "2026-06",
+   "link": "./garden/corpus/research/后训练基础设施调研_2026-06"
+  },
+  {
+   "title": "AReaL 2.0 自演进能力解读 2026-07",
+   "date": "2026-07",
+   "link": "./garden/corpus/research/AReaL_2.0_自演进能力解读_2026-07"
+  }
+ ]
+}
