@@ -10,7 +10,7 @@
 <style>
 :root{
   --paper:#F7F5F1; --card:#FCFBF9; --ink:#1A1817; --muted:#8A857C;
-  --hair:#E5E1D9; --green:#2F6F4F; --amber:#B98A2F;
+  --hair:#E5E1D9; --green:#2F6F4F; --amber:#B98A2F; --red:#A94438;
   --serif:"Noto Serif SC",serif; --sans:"Noto Sans SC",sans-serif; --mono:"JetBrains Mono",monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -18,10 +18,9 @@ html{background:var(--paper)}
 body{font-family:var(--sans);color:var(--ink);min-height:100vh;
   background:radial-gradient(1200px 500px at 70% -10%, #FFFFFF 0%, var(--paper) 60%)}
 a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+a:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
 
-/* top bar */
 header{display:flex;align-items:baseline;justify-content:space-between;padding:34px 0 0}
 .wordmark{font-family:var(--serif);font-weight:900;font-size:28px;letter-spacing:.02em}
 .wordmark span{color:var(--green)}
@@ -29,66 +28,50 @@ nav{display:flex;gap:22px;font-family:var(--mono);font-size:11px;letter-spacing:
 nav a:hover{color:var(--ink)}
 #today{color:var(--ink)}
 
-/* hero */
-.hero{padding:64px 0 40px}
-.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(40px,6vw,72px);line-height:1.05}
+.hero{padding:46px 0 34px}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4.6vw,52px);line-height:1.08}
 .hero h1 em{font-style:normal;color:var(--green)}
-.hero p{margin-top:14px;color:var(--muted);font-size:15px;max-width:52ch}
+.hero p{margin-top:10px;color:var(--muted);font-size:14px}
 
-/* stat cards */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;padding-bottom:56px}
-.card{background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:20px 22px;
-  box-shadow:0 1px 2px rgba(26,24,23,.04)}
-.card .label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.card .num{font-family:var(--serif);font-weight:600;font-size:44px;line-height:1.15;margin-top:10px;font-variant-numeric:tabular-nums}
-.card .sub{font-size:12px;color:var(--muted);margin-top:4px}
-.card.pending .num{color:var(--muted)}
+/* four blocks */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:52px}
+.block{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:22px 24px;
+  box-shadow:0 1px 2px rgba(26,24,23,.04);display:flex;flex-direction:column;min-height:280px}
+.bk-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.bk-head h2{font-family:var(--serif);font-weight:900;font-size:18px}
+.bk-head .hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.stub-tag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--amber);
+  border:1px dashed var(--amber);border-radius:99px;padding:1px 7px;margin-left:8px;vertical-align:2px}
 
-/* sections */
-section{padding:34px 0;border-top:1px solid var(--hair)}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px}
-.sec-head h2{font-family:var(--serif);font-weight:900;font-size:22px}
-.sec-head .hint{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.kpis{display:flex;gap:26px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed var(--hair)}
+.kpi .num{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi .lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.kpi .num small{font-size:14px;color:var(--muted);font-family:var(--sans)}
 
-/* feeds (news + agents) */
-.feed{display:flex;flex-direction:column}
-.feed-item{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:13px 4px;border-bottom:1px dashed var(--hair);font-size:14px}
-.feed-item:last-child{border-bottom:none}
-.feed-item time{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:2px}
-.feed-item .tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--green);
-  border:1px solid var(--hair);border-radius:99px;padding:1px 8px;margin-right:8px;vertical-align:1px}
-.empty{border:1px dashed var(--hair);border-radius:10px;padding:26px;color:var(--muted);font-size:14px;background:var(--card)}
-.empty b{color:var(--ink);font-weight:500}
+.rows{display:flex;flex-direction:column;flex:1}
+.row{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dashed var(--hair);font-size:13px;line-height:1.5}
+.row:last-child{border-bottom:none}
+.row .meta{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;padding-top:2px}
+.row a:hover{color:var(--green)}
+.tag{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--green);
+  border:1px solid var(--hair);border-radius:99px;padding:1px 7px;margin-right:7px;vertical-align:1px}
+.tag.amber{color:var(--amber)}
+.tag.red{color:var(--red)}
+.bk-foot{margin-top:auto;padding-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted)}
+.bk-foot a:hover{color:var(--ink)}
 
-/* agent status dot */
-.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:9px;
-  animation:pulse 2.4s ease-in-out infinite}
+.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:8px;
+  animation:pulse 2.4s ease-in-out infinite;vertical-align:2px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 @media (prefers-reduced-motion:reduce){.dot{animation:none}}
 
-/* projects */
-.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
-.proj{background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:18px 20px;transition:border-color .15s}
-.proj:hover{border-color:var(--green)}
-.proj h3{font-family:var(--serif);font-weight:600;font-size:17px}
-.proj p{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.55}
-.proj .st{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--amber);text-transform:uppercase;margin-top:12px;display:block}
-
-/* docs */
-.docs{display:flex;flex-direction:column}
-.doc{display:flex;justify-content:space-between;gap:16px;padding:12px 4px;border-bottom:1px dashed var(--hair);font-size:14.5px}
-.doc:last-child{border-bottom:none}
-.doc a{border-bottom:1px solid transparent}
-.doc a:hover{color:var(--green);border-bottom-color:var(--green)}
-.doc .d{color:var(--muted);font-size:12.5px;white-space:nowrap;padding-top:2px}
-
-footer{padding:44px 0 60px;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+footer{padding:40px 0 56px;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.1em;
   display:flex;justify-content:space-between;border-top:1px solid var(--hair)}
 footer a:hover{color:var(--ink)}
 
-@media (max-width:640px){
-  .hero{padding:44px 0 32px}
-  .feed-item{grid-template-columns:1fr;gap:4px}
+@media (max-width:760px){
+  .grid{grid-template-columns:1fr}
+  .block{min-height:0}
   header{flex-direction:column;gap:12px}
 }
 </style>
@@ -106,36 +89,52 @@ footer a:hover{color:var(--ink)}
 </header>
 
 <div class="hero">
-  <h1>数据化 × 元能力<br>× <em>衡量标准</em></h1>
-  <p>个人指挥台:每日情报、AI 马仔动向、在做项目与调研档案。所有数字由归档管线自动统计。</p>
+  <h1>数据化 × 元能力 × <em>衡量标准</em></h1>
+  <p>产出 · 输入 · 影响 · 生活,四个面板看清自己。</p>
 </div>
 
-<div class="stats" id="stats">
-  <div class="card"><div class="label">调研文档</div><div class="num" id="n-docs">–</div><div class="sub">corpus/research</div></div>
-  <div class="card"><div class="label">在做项目</div><div class="num" id="n-projects">–</div><div class="sub">进行中</div></div>
-  <div class="card"><div class="label">归档对话</div><div class="num" id="n-chats">–</div><div class="sub">条,已脱敏</div></div>
-  <div class="card pending"><div class="label">情报源</div><div class="num" id="n-sources">0</div><div class="sub">待接入 daily-news</div></div>
+<div class="grid">
+
+  <div class="block" id="bk-github">
+    <div class="bk-head"><h2>代码产出</h2><span class="hint">github</span></div>
+    <div class="kpis">
+      <div class="kpi"><div class="num" id="gh-repos">–</div><div class="lab">公开仓库</div></div>
+      <div class="kpi"><div class="num" id="gh-stars">–</div><div class="lab">Stars</div></div>
+      <div class="kpi"><div class="num" id="gh-recent">–</div><div class="lab">30 天活跃</div></div>
+    </div>
+    <div class="rows" id="gh-rows"></div>
+    <div class="bk-foot"><a href="https://github.com/coo-2022" target="_blank" rel="noopener">github.com/coo-2022 →</a></div>
+  </div>
+
+  <div class="block" id="bk-intel">
+    <div class="bk-head"><h2><span class="dot"></span>情报输入</h2><span class="hint">timeline + research</span></div>
+    <div class="rows" id="intel-rows"></div>
+    <div class="bk-foot"><a href="./garden/">调研全文进花园 →</a></div>
+  </div>
+
+  <div class="block" id="bk-impact">
+    <div class="bk-head"><h2>世界影响</h2><span class="hint">impact</span></div>
+    <div class="kpis">
+      <div class="kpi"><div class="num" id="im-posts">–</div><div class="lab">发布文章</div></div>
+      <div class="kpi"><div class="num" id="im-readers">–</div><div class="lab">累计阅读</div></div>
+      <div class="kpi"><div class="num" id="im-income">–</div><div class="lab">本月收益</div></div>
+    </div>
+    <div class="rows" id="im-rows"></div>
+    <div class="bk-foot">traces/impact/latest.json</div>
+  </div>
+
+  <div class="block" id="bk-life">
+    <div class="bk-head"><h2>运动 · 阅读</h2><span class="hint">body + mind</span></div>
+    <div class="kpis">
+      <div class="kpi"><div class="num" id="lf-run">–</div><div class="lab">本周运动</div></div>
+      <div class="kpi"><div class="num" id="lf-reading">–</div><div class="lab">在读</div></div>
+      <div class="kpi"><div class="num" id="lf-done">–</div><div class="lab">今年读完</div></div>
+    </div>
+    <div class="rows" id="lf-rows"></div>
+    <div class="bk-foot">traces/life/latest.json</div>
+  </div>
+
 </div>
-
-<section id="news">
-  <div class="sec-head"><h2>今日情报</h2><span class="hint">daily briefing</span></div>
-  <div id="news-body"></div>
-</section>
-
-<section id="agents">
-  <div class="sec-head"><h2><span class="dot"></span>马仔动向</h2><span class="hint">agent activity</span></div>
-  <div id="agents-body"></div>
-</section>
-
-<section id="projects-sec">
-  <div class="sec-head"><h2>在做项目</h2><span class="hint">active projects</span></div>
-  <div class="projects" id="projects-body"></div>
-</section>
-
-<section id="docs-sec">
-  <div class="sec-head"><h2>调研档案</h2><span class="hint">research</span></div>
-  <div class="docs" id="docs-body"></div>
-</section>
 
 <footer>
   <span>me-archive · 私有全量,公开子集</span>
@@ -146,30 +145,82 @@ footer a:hover{color:var(--ink)}
 
 <script>
 const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 $("today").textContent=new Date().toLocaleDateString("zh-CN",{month:"long",day:"numeric",weekday:"short"});
 
+const stubTag='<span class="stub-tag">示例</span>';
+const markStub=id=>{const h=document.querySelector(`#${id} .bk-head h2`);if(h)h.insertAdjacentHTML("beforeend",stubTag)};
+const row=(left,meta)=>`<div class="row"><div>${left}</div><span class="meta">${esc(meta||"")}</span></div>`;
+
+/* ── ① GitHub:浏览器直连公开 API,失败则打桩 ── */
+const GH_USER="coo-2022";
+async function loadGithub(){
+  try{
+    const repos=await (await fetch(`https://api.github.com/users/${GH_USER}/repos?sort=pushed&per_page=100`)).json();
+    if(!Array.isArray(repos))throw 0;
+    const now=Date.now(),d30=30*864e5;
+    $("gh-repos").textContent=repos.length;
+    $("gh-stars").textContent=repos.reduce((s,r)=>s+r.stargazers_count,0);
+    $("gh-recent").textContent=repos.filter(r=>now-new Date(r.pushed_at)<d30).length;
+    $("gh-rows").innerHTML=repos.slice(0,4).map(r=>row(
+      `<a href="${r.html_url}" target="_blank" rel="noopener">${esc(r.name)}</a>`
+      +(r.language?` <span class="tag">${esc(r.language)}</span>`:""),
+      new Date(r.pushed_at).toLocaleDateString("zh-CN",{month:"numeric",day:"numeric"})+" 推送")).join("");
+  }catch(e){
+    markStub("bk-github");
+    $("gh-repos").textContent="6";$("gh-stars").textContent="12";$("gh-recent").textContent="3";
+    $("gh-rows").innerHTML=[["me-archive","今天 推送"],["SimpleRL","昨天 推送"],["AgentWorld","3 天前"],["TradeFun","上周"]]
+      .map(([n,t])=>row(esc(n),t)).join("");
+  }
+}
+loadGithub();
+
+/* ── ②③④:data.json(构建时生成);social/impact/life 无数据则打桩 ── */
+const STUB={
+  social:[
+    {time:"08:12",tag:"Twitter",text:"@karpathy:小模型 RL 的样本效率被低估了"},
+    {time:"09:40",tag:"arXiv",text:"Speculative decoding 新工作:接受率 0.9+"},
+    {time:"11:05",tag:"知乎",text:"AReaL 2.0 在线自演进讨论热帖"},
+  ],
+  impact:{posts:3,readers:"1.2k",income:"¥0",items:[
+    {time:"07-01",tag:"文章",text:"大模型推理加速技术调研(内部发布)"},
+    {time:"06-28",tag:"文章",text:"本机 8GB 显存跑 GRPO 实践"},
+    {time:"06-20",tag:"收益",text:"暂无变现渠道,待接入"},
+  ]},
+  life:{run:"12<small> km</small>",reading:2,done:5,items:[
+    {time:"今天",tag:"运动",text:"慢跑 5 km · 32 分钟"},
+    {time:"昨天",tag:"阅读",text:"《为什么伟大不能被计划》第 6 章"},
+    {time:"周二",tag:"运动",text:"力量训练 40 分钟"},
+  ]},
+};
+const feedRows=items=>items.map(i=>row(
+  (i.tag?`<span class="tag">${esc(i.tag)}</span>`:"")+(i.link?`<a href="${i.link}">${esc(i.text)}</a>`:esc(i.text)),
+  i.time)).join("");
+
 fetch("./data.json").then(r=>r.json()).then(d=>{
-  $("n-docs").textContent=d.stats.docs;
-  $("n-projects").textContent=d.stats.projects;
-  $("n-chats").textContent=d.stats.chats.toLocaleString("zh-CN");
-  $("n-sources").textContent=d.stats.sources;
+  // ② 情报输入 = 社交时间线(桩/真)+ 最新调研(真)
+  const social=(d.social&&d.social.length)?d.social:(markStub("bk-intel"),STUB.social);
+  const research=(d.docs||[]).slice(0,3).map(x=>({time:x.date,tag:"调研",text:x.title,link:x.link}));
+  $("intel-rows").innerHTML=feedRows([...social,...research]);
 
-  const feed=(items,empty)=> items&&items.length
-    ? `<div class="feed">${items.map(i=>`<div class="feed-item"><time>${i.time}</time><div>${i.tag?`<span class="tag">${i.tag}</span>`:""}${i.link?`<a href="${i.link}">${i.text}</a>`:i.text}</div></div>`).join("")}</div>`
-    : `<div class="empty">${empty}</div>`;
+  // ③ 世界影响
+  const im=d.impact||(markStub("bk-impact"),STUB.impact);
+  $("im-posts").textContent=im.posts;$("im-readers").textContent=im.readers;$("im-income").textContent=im.income;
+  $("im-rows").innerHTML=feedRows(im.items||[]);
 
-  $("news-body").innerHTML=feed(d.news,
-    "<b>情报管线尚未接入。</b> daily-news 能力上线后,每天筛选后的 Twitter / 知乎 / arXiv / HuggingFace 情报会出现在这里。");
-  $("agents-body").innerHTML=feed(d.agents,
-    "<b>暂无马仔活动。</b> AI 代理的执行记录会实时归档到这里。");
-
-  $("projects-body").innerHTML=d.projects.map(p=>
-    `<div class="proj"><h3>${p.name}</h3><p>${p.desc}</p><span class="st">${p.status}</span></div>`).join("");
-
-  $("docs-body").innerHTML=d.docs.map(x=>
-    `<div class="doc"><a href="${x.link}">${x.title}</a><span class="d">${x.date}</span></div>`).join("");
+  // ④ 运动 · 阅读
+  const lf=d.life||(markStub("bk-life"),STUB.life);
+  $("lf-run").innerHTML=lf.run;$("lf-reading").textContent=lf.reading;$("lf-done").textContent=lf.done;
+  $("lf-rows").innerHTML=feedRows(lf.items||[]);
 }).catch(()=>{
-  $("news-body").innerHTML='<div class="empty">data.json 加载失败——构建管线可能未生成数据。</div>';
+  markStub("bk-intel");markStub("bk-impact");markStub("bk-life");
+  $("intel-rows").innerHTML=feedRows(STUB.social);
+  const im=STUB.impact;
+  $("im-posts").textContent=im.posts;$("im-readers").textContent=im.readers;$("im-income").textContent=im.income;
+  $("im-rows").innerHTML=feedRows(im.items);
+  const lf=STUB.life;
+  $("lf-run").innerHTML=lf.run;$("lf-reading").textContent=lf.reading;$("lf-done").textContent=lf.done;
+  $("lf-rows").innerHTML=feedRows(lf.items);
 });
 </script>
 </body>

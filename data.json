@@ -1,49 +1,4 @@
 {
- "stats": {
-  "docs": 6,
-  "projects": 7,
-  "chats": 5321,
-  "sources": 0
- },
- "news": null,
- "agents": null,
- "projects": [
-  {
-   "name": "OpenEarth",
-   "desc": "暂无简介",
-   "status": "进行中"
-  },
-  {
-   "name": "AgentWorld",
-   "desc": "暂无简介",
-   "status": "进行中"
-  },
-  {
-   "name": "SimpleRL",
-   "desc": "暂无简介",
-   "status": "进行中"
-  },
-  {
-   "name": "Majhong",
-   "desc": "暂无简介",
-   "status": "进行中"
-  },
-  {
-   "name": "TradeFun",
-   "desc": "暂无简介",
-   "status": "进行中"
-  },
-  {
-   "name": "ZuiTi",
-   "desc": "暂无简介",
-   "status": "进行中"
-  },
-  {
-   "name": "XianShengPro",
-   "desc": "暂无简介",
-   "status": "进行中"
-  }
- ],
  "docs": [
   {
    "title": "本机RL训练方案 2026-07",
@@ -75,5 +30,8 @@
    "date": "2026-07",
    "link": "./garden/corpus/research/AReaL_2.0_自演进能力解读_2026-07"
   }
- ]
+ ],
+ "social": null,
+ "impact": null,
+ "life": null
 }
