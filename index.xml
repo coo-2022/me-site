@@ -1,52 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
     <channel>
-      <title>Quartz 4</title>
-      <link>https://quartz.jzhao.xyz</link>
-      <description>Last 10 notes on Quartz 4</description>
+      <title>🌱 数字花园</title>
+      <link>https://coo-2022.github.io/me-site</link>
+      <description>最近的10条笔记 on 🌱 数字花园</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
     <title>在做项目</title>
-    <link>https://quartz.jzhao.xyz/profile/PROJECTS</link>
-    <guid>https://quartz.jzhao.xyz/profile/PROJECTS</guid>
+    <link>https://coo-2022.github.io/me-site/profile/PROJECTS</link>
+    <guid>https://coo-2022.github.io/me-site/profile/PROJECTS</guid>
     <description><![CDATA[ 在做项目 更新:2026-07-04 项目简介状态OpenEarth(待补充)进行中AgentWorld(待补充)进行中SimpleRL(待补充)进行中Majhong(待补充)进行中TradeFun(待补充)进行中ZuiTi(待补充)进行中XianShengPro(待补充)进行中 相关调研 后训练基础设施调研 大模型推理加速技术调研 AReaL 2.0 自演进能力解读 未来 RL 规模与算力趋势 本机 RL 训练方案 . ]]></description>
-    <pubDate>Fri, 03 Jul 2026 16:16:27 GMT</pubDate>
-  </item><item>
-    <title>未来RL规模与算力趋势_2026-06</title>
-    <link>https://quartz.jzhao.xyz/corpus/research/%E6%9C%AA%E6%9D%A5RL%E8%A7%84%E6%A8%A1%E4%B8%8E%E7%AE%97%E5%8A%9B%E8%B6%8B%E5%8A%BF_2026-06</link>
-    <guid>https://quartz.jzhao.xyz/corpus/research/%E6%9C%AA%E6%9D%A5RL%E8%A7%84%E6%A8%A1%E4%B8%8E%E7%AE%97%E5%8A%9B%E8%B6%8B%E5%8A%BF_2026-06</guid>
-    <description><![CDATA[ 未来 RL 规模与算力趋势调研 整理日期:2026-06-30 ｜ 数据经 bb-browser 实地核实,文末附引用 配套文档:见 后训练基础设施调研_2026-06.md(本篇为其”未来规模”专题展开) 0. ]]></description>
-    <pubDate>Fri, 03 Jul 2026 16:16:27 GMT</pubDate>
-  </item><item>
-    <title>本机RL训练方案_2026-07</title>
-    <link>https://quartz.jzhao.xyz/corpus/research/%E6%9C%AC%E6%9C%BARL%E8%AE%AD%E7%BB%83%E6%96%B9%E6%A1%88_2026-07</link>
-    <guid>https://quartz.jzhao.xyz/corpus/research/%E6%9C%AC%E6%9C%BARL%E8%AE%AD%E7%BB%83%E6%96%B9%E6%A1%88_2026-07</guid>
-    <description><![CDATA[ 本机跑强化学习(RL 后训练)方案 整理日期:2026-07-01 ｜ 目标:在本地笔记本上亲手跑通 LLM 后训练(GRPO)全流程,体感 rollout→reward→train 循环 配套调研:见 后训练基础设施调研_2026-06.md、未来RL规模与算力趋势_2026-06.md 0. ]]></description>
-    <pubDate>Fri, 03 Jul 2026 16:16:27 GMT</pubDate>
-  </item><item>
-    <title>AReaL_2.0_自演进能力解读_2026-07</title>
-    <link>https://quartz.jzhao.xyz/corpus/research/AReaL_2.0_%E8%87%AA%E6%BC%94%E8%BF%9B%E8%83%BD%E5%8A%9B%E8%A7%A3%E8%AF%BB_2026-07</link>
-    <guid>https://quartz.jzhao.xyz/corpus/research/AReaL_2.0_%E8%87%AA%E6%BC%94%E8%BF%9B%E8%83%BD%E5%8A%9B%E8%A7%A3%E8%AF%BB_2026-07</guid>
-    <description><![CDATA[ AReaL 2.0 自演进能力解读 整理日期:2026-07-02 ｜ 基于官方首发解读 + 仓库核实,文末附引用与证据等级 配套文档:后训练基础设施调研_2026-06.md、未来RL规模与算力趋势_2026-06.md 0. ]]></description>
-    <pubDate>Fri, 03 Jul 2026 16:16:27 GMT</pubDate>
+    <pubDate>Sat, 04 Jul 2026 00:31:34 GMT</pubDate>
   </item><item>
     <title>后训练基础设施调研_2026-06</title>
-    <link>https://quartz.jzhao.xyz/corpus/research/%E5%90%8E%E8%AE%AD%E7%BB%83%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E8%B0%83%E7%A0%94_2026-06</link>
-    <guid>https://quartz.jzhao.xyz/corpus/research/%E5%90%8E%E8%AE%AD%E7%BB%83%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E8%B0%83%E7%A0%94_2026-06</guid>
+    <link>https://coo-2022.github.io/me-site/corpus/research/%E5%90%8E%E8%AE%AD%E7%BB%83%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E8%B0%83%E7%A0%94_2026-06</link>
+    <guid>https://coo-2022.github.io/me-site/corpus/research/%E5%90%8E%E8%AE%AD%E7%BB%83%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E8%B0%83%E7%A0%94_2026-06</guid>
     <description><![CDATA[ 后训练(RL Post-Training)基础设施调研 整理日期:2026-06-29 ｜ 数据来源经 bb-browser 实地核实,文末附引用与证据等级 范围:大模型强化学习后训练的基建痛点、训推异步方案、量化证据、成本模型、厂商方案 0. ]]></description>
-    <pubDate>Fri, 03 Jul 2026 16:16:27 GMT</pubDate>
+    <pubDate>Sat, 04 Jul 2026 00:31:34 GMT</pubDate>
   </item><item>
     <title>大模型推理加速技术调研_2026-07</title>
-    <link>https://quartz.jzhao.xyz/corpus/research/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E5%8A%A0%E9%80%9F%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94_2026-07</link>
-    <guid>https://quartz.jzhao.xyz/corpus/research/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E5%8A%A0%E9%80%9F%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94_2026-07</guid>
+    <link>https://coo-2022.github.io/me-site/corpus/research/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E5%8A%A0%E9%80%9F%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94_2026-07</link>
+    <guid>https://coo-2022.github.io/me-site/corpus/research/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E5%8A%A0%E9%80%9F%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94_2026-07</guid>
     <description><![CDATA[ 大模型推理加速技术调研 整理日期:2026-07-03 ｜ 数据经网络检索核实,文末附引用与证据等级 配套文档:后训练基础设施调研_2026-06.md(RL 的 rollout 生成瓶颈本质就是推理慢,两篇同源) 0. ]]></description>
-    <pubDate>Fri, 03 Jul 2026 16:16:27 GMT</pubDate>
+    <pubDate>Sat, 04 Jul 2026 00:31:34 GMT</pubDate>
   </item><item>
     <title>强化学习研究热点调研_2026-06</title>
-    <link>https://quartz.jzhao.xyz/corpus/research/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%A0%94%E7%A9%B6%E7%83%AD%E7%82%B9%E8%B0%83%E7%A0%94_2026-06</link>
-    <guid>https://quartz.jzhao.xyz/corpus/research/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%A0%94%E7%A9%B6%E7%83%AD%E7%82%B9%E8%B0%83%E7%A0%94_2026-06</guid>
+    <link>https://coo-2022.github.io/me-site/corpus/research/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%A0%94%E7%A9%B6%E7%83%AD%E7%82%B9%E8%B0%83%E7%A0%94_2026-06</link>
+    <guid>https://coo-2022.github.io/me-site/corpus/research/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%A0%94%E7%A9%B6%E7%83%AD%E7%82%B9%E8%B0%83%E7%A0%94_2026-06</guid>
     <description><![CDATA[ 强化学习 / Agentic RL 研究热点调研报告 调研日期:2026-06-25 数据来源:arXiv（arxiv/search，70 篇 2026-06 新论文）、知乎（zhihu/search，两轮）、Twitter/X（twitter/search top + twitter/tweets 逐账号） 采集工具:bb-browser（浏览器登录态 + site adapter，输出结构化 JSON） 目录 一、核心结论 二、研究热点全景（三源交叉验证） 三、arXiv 视角：最新论文 四、知乎视角：中文社区 五、Twitter 视角：一线动态 六、深挖：prime-rl &amp; P... ]]></description>
-    <pubDate>Fri, 03 Jul 2026 16:16:27 GMT</pubDate>
+    <pubDate>Sat, 04 Jul 2026 00:31:34 GMT</pubDate>
+  </item><item>
+    <title>未来RL规模与算力趋势_2026-06</title>
+    <link>https://coo-2022.github.io/me-site/corpus/research/%E6%9C%AA%E6%9D%A5RL%E8%A7%84%E6%A8%A1%E4%B8%8E%E7%AE%97%E5%8A%9B%E8%B6%8B%E5%8A%BF_2026-06</link>
+    <guid>https://coo-2022.github.io/me-site/corpus/research/%E6%9C%AA%E6%9D%A5RL%E8%A7%84%E6%A8%A1%E4%B8%8E%E7%AE%97%E5%8A%9B%E8%B6%8B%E5%8A%BF_2026-06</guid>
+    <description><![CDATA[ 未来 RL 规模与算力趋势调研 整理日期:2026-06-30 ｜ 数据经 bb-browser 实地核实,文末附引用 配套文档:见 后训练基础设施调研_2026-06.md(本篇为其”未来规模”专题展开) 0. ]]></description>
+    <pubDate>Sat, 04 Jul 2026 00:31:34 GMT</pubDate>
+  </item><item>
+    <title>本机RL训练方案_2026-07</title>
+    <link>https://coo-2022.github.io/me-site/corpus/research/%E6%9C%AC%E6%9C%BARL%E8%AE%AD%E7%BB%83%E6%96%B9%E6%A1%88_2026-07</link>
+    <guid>https://coo-2022.github.io/me-site/corpus/research/%E6%9C%AC%E6%9C%BARL%E8%AE%AD%E7%BB%83%E6%96%B9%E6%A1%88_2026-07</guid>
+    <description><![CDATA[ 本机跑强化学习(RL 后训练)方案 整理日期:2026-07-01 ｜ 目标:在本地笔记本上亲手跑通 LLM 后训练(GRPO)全流程,体感 rollout→reward→train 循环 配套调研:见 后训练基础设施调研_2026-06.md、未来RL规模与算力趋势_2026-06.md 0. ]]></description>
+    <pubDate>Sat, 04 Jul 2026 00:31:34 GMT</pubDate>
+  </item><item>
+    <title>AReaL_2.0_自演进能力解读_2026-07</title>
+    <link>https://coo-2022.github.io/me-site/corpus/research/AReaL_2.0_%E8%87%AA%E6%BC%94%E8%BF%9B%E8%83%BD%E5%8A%9B%E8%A7%A3%E8%AF%BB_2026-07</link>
+    <guid>https://coo-2022.github.io/me-site/corpus/research/AReaL_2.0_%E8%87%AA%E6%BC%94%E8%BF%9B%E8%83%BD%E5%8A%9B%E8%A7%A3%E8%AF%BB_2026-07</guid>
+    <description><![CDATA[ AReaL 2.0 自演进能力解读 整理日期:2026-07-02 ｜ 基于官方首发解读 + 仓库核实,文末附引用与证据等级 配套文档:后训练基础设施调研_2026-06.md、未来RL规模与算力趋势_2026-06.md 0. ]]></description>
+    <pubDate>Sat, 04 Jul 2026 00:31:34 GMT</pubDate>
+  </item><item>
+    <title>首页</title>
+    <link>https://coo-2022.github.io/me-site/</link>
+    <guid>https://coo-2022.github.io/me-site/</guid>
+    <description><![CDATA[ 欢迎 👋 这里是我的数字花园——调研笔记、项目记录与想法的公开子集。 🚀 在做项目 正在推进的项目清单 → 在做项目 📚 调研文档 后训练基础设施调研 — RL 训练的生成瓶颈、异步化、成本模型 未来 RL 规模与算力趋势 — RL scaling law 与卡数推算 大模型推理加速技术调研 — 五层加速栈全景 AReaL 2.0 自演进能力解读 — 在线 RL 与真实轨迹回流 强化学习研究热点调研 本机 RL 训练方案 — 8GB 显存跑 GRPO 用右上角搜索或页面底部的关系图谱探索全部内容。 . ]]></description>
+    <pubDate>Sat, 04 Jul 2026 00:31:34 GMT</pubDate>
   </item>
     </channel>
   </rss>
