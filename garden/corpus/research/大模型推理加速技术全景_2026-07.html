@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>大模型推理加速技术全景(2026-07) · me-site</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Serif SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="🌱 数字花园"/><meta property="og:title" content="大模型推理加速技术全景(2026-07) · me-site"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="大模型推理加速技术全景(2026-07) · me-site"/><meta name="twitter:description" content="大模型推理加速技术全景 调研日期:2026-07-05 · 前篇:[大模型推理加速技术调研_2026-07] 生产可用性评级:★★★ 生产默认/主流框架内置 · ★★ 生产可用但需针对性评估 · ★ 前沿/实验阶段 0."/><meta property="og:description" content="大模型推理加速技术全景 调研日期:2026-07-05 · 前篇:[大模型推理加速技术调研_2026-07] 生产可用性评级:★★★ 生产默认/主流框架内置 · ★★ 生产可用但需针对性评估 · ★ 前沿/实验阶段 0."/><meta property="og:image:alt" content="大模型推理加速技术全景 调研日期:2026-07-05 · 前篇:[大模型推理加速技术调研_2026-07] 生产可用性评级:★★★ 生产默认/主流框架内置 · ★★ 生产可用但需针对性评估 · ★ 前沿/实验阶段 0."/><meta property="og:image" content="https://coo-2022.github.io/me-site/garden/static/og-image.png"/><meta property="og:image:url" content="https://coo-2022.github.io/me-site/garden/static/og-image.png"/><meta name="twitter:image" content="https://coo-2022.github.io/me-site/garden/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="coo-2022.github.io/me-site/garden"/><meta property="og:url" content="https://coo-2022.github.io/me-site/garden/corpus/research/大模型推理加速技术全景_2026-07"/><meta property="twitter:url" content="https://coo-2022.github.io/me-site/garden/corpus/research/大模型推理加速技术全景_2026-07"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="大模型推理加速技术全景 调研日期:2026-07-05 · 前篇:[大模型推理加速技术调研_2026-07] 生产可用性评级:★★★ 生产默认/主流框架内置 · ★★ 生产可用但需针对性评估 · ★ 前沿/实验阶段 0."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvbWUtYXJjaGl2ZS9tZS1hcmNoaXZlL3F1YXJ0ei9xdWFydHovY29tcG9uZW50cy9zdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://coo-2022.github.io/me-site/garden/index.xml"/></head><body data-slug="corpus/research/大模型推理加速技术全景_2026-07"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">🌱 数字花园</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索些什么" placeholder="搜索些什么"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-5" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../corpus/">corpus</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../corpus/research/">research</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>大模型推理加速技术全景(2026 07)</a></div></nav><h1 class="article-title">大模型推理加速技术全景(2026-07)</h1><p show-comma="true" class="content-meta"><time datetime="2026-07-06T00:51:12.406Z">2026年7月06日</time><span>20分钟阅读</span></p></div></div><article class="popover-hint"><h1 id="大模型推理加速技术全景">大模型推理加速技术全景<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#大模型推理加速技术全景" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><em>调研日期:2026-07-05 · 前篇:<a href="../../五层速览版,本篇为逐点展开的全景版" class="internal alias" data-slug="五层速览版,本篇为逐点展开的全景版">[大模型推理加速技术调研_2026-07]</a></em></p>
+<p>生产可用性评级:★★★ 生产默认/主流框架内置 · ★★ 生产可用但需针对性评估 · ★ 前沿/实验阶段</p>
+<hr/>
+<h2 id="0-技术地图总览">0. 技术地图总览<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#0-技术地图总览" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>推理加速的全部手段,按”改什么”分为九类:</p>
+<pre><code>① 模型压缩      改权重/激活的数值表示与数量(量化、剪枝、蒸馏)
+② 模型架构      改模型本身的计算图(GQA/MLA、SSM 混合、MoE、稀疏注意力、MTP)
+③ 解码算法      改 token 的生成方式(投机解码、扩散解码)
+④ 运行时调度    改请求的组织方式(batching、KV 管理、PD 分离、缓存复用)
+⑤ Kernel/编译   改单个算子的执行效率(FlashAttention、FP8 GEMM、CUDA Graphs)
+⑥ 并行策略      改模型在多卡上的切分方式(TP/PP/EP/SP)
+⑦ 长上下文专项  专攻 KV cache 的显存与带宽瓶颈(驱逐、压缩、offload)
+⑧ 硬件          换执行的芯片(Blackwell、ASIC)
+⑨ 框架          上述手段的工程集成(vLLM/SGLang/TRT-LLM/llama.cpp)
+</code></pre>
+<p>物理约束不变:<strong>prefill 算力受限(决定 TTFT),decode 带宽受限(决定 TPOT)</strong>。每项技术本质上都在攻其中一个,或者攻”重复计算”(缓存复用类)。</p>
+<hr/>
+<h2 id="-模型压缩">① 模型压缩<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-模型压缩" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="11-权重量化weight-only">1.1 权重量化(weight-only)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-权重量化weight-only" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:只压权重不压激活,decode 阶段权重搬运量减半/减 3/4,直接提升带宽受限下的 TPOT。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>方案</th><th>代表工作</th><th>收益</th><th>评级</th></tr></thead><tbody><tr><td>INT4 权重(GPTQ)</td><td>GPTQ (arXiv:2210.17323)</td><td>权重 4×压缩,7B 模型单卡 8GB 可跑</td><td>★★★</td></tr><tr><td>INT4 权重(AWQ)</td><td>AWQ,激活感知选保护通道</td><td>同 4×,精度普遍优于 GPTQ,vLLM/TRT 均内置</td><td>★★★</td></tr><tr><td>FP8 权重+激活</td><td>H100 原生支持</td><td>显存减半,精度损失 &lt;1%,<strong>当前生产默认</strong></td><td>★★★</td></tr><tr><td>NVFP4 / MXFP4</td><td>Blackwell 原生 4bit 浮点</td><td>相对 FP8 再减半,官方称精度损失 &lt;1%(NVIDIA 自报)</td><td>★★</td></tr></tbody></table></div>
+<h3 id="12-激活量化w8a8--w4a4">1.2 激活量化(W8A8 / W4A4)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-激活量化w8a8--w4a4" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:激活也量化,矩阵乘直接用低精度 Tensor Core,prefill 也加速(纯 weight-only 只加速 decode)。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>方案</th><th>代表工作</th><th>收益</th><th>评级</th></tr></thead><tbody><tr><td>W8A8 SmoothQuant</td><td>把激活离群值”迁移”到权重</td><td>INT8 全程,吞吐 ~1.5×,精度接近无损</td><td>★★★</td></tr><tr><td>W4A4</td><td>QuaRot/SpinQuant 旋转消离群值</td><td>理论 4×算力,精度仍有损,Blackwell W4A4KV4 路线</td><td>★</td></tr></tbody></table></div>
+<h3 id="13-kv-cache-量化">1.3 KV cache 量化<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-kv-cache-量化" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:KV 从 FP16 → FP8/INT4,同显存下 batch 或上下文翻倍~4 倍。FP8 KV 生产成熟(★★★),NVFP4 KV 在 Blackwell 上再减半、官方称损失 &lt;1%(★★)。</p>
+<h3 id="14-剪枝--稀疏">1.4 剪枝 / 稀疏<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#14-剪枝--稀疏" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:把部分权重置零;2:4 半结构化稀疏(每 4 个连续权重恰好 2 个零)可用 Ampere+ 的 Sparse Tensor Core 硬件加速。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>方案</th><th>代表工作</th><th>收益</th><th>评级</th></tr></thead><tbody><tr><td>一次性剪枝(需校准数据)</td><td>SparseGPT (arXiv:2301.00774)</td><td>50% 稀疏免重训,质量优于 Wanda,适合出产线 checkpoint</td><td>★★</td></tr><tr><td>一次性剪枝(免校准,快)</td><td>Wanda (arXiv:2306.11695)</td><td>权重×激活范数打分,开销远低于 SparseGPT,适合快速迭代</td><td>★★</td></tr><tr><td>2:4 硬件稀疏推理</td><td>vLLM + Sparse Tensor Core</td><td>线性层 ~1.6×,<strong>端到端仅 1.24–1.27×</strong>(LLaMA-7B 实测)</td><td>★★</td></tr></tbody></table></div>
+<p>注意:剪枝的端到端收益明显小于量化(attention/非线性部分不受益),且质量损失更难控,生产采用率远低于量化。这是”论文数字漂亮、落地折扣大”的典型区。</p>
+<h3 id="15-蒸馏结构性压缩">1.5 蒸馏(结构性压缩)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#15-蒸馏结构性压缩" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:大模型当教师,小模型当学生;NVIDIA Minitron 路线 = 结构化剪枝(宽度 > 深度)+ 蒸馏恢复精度。</p>
+<ul>
+<li>Llama-3.1-8B → Minitron-4B、Mistral-NeMo-12B → 8B:相比从头训练小模型,MMLU +16%,训练 token 需求降 <strong>40×</strong>(约 100B tokens/模型)(<a href="https://arxiv.org/abs/2408.11796" class="external">NVIDIA, arXiv:2408.11796<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)。评级 ★★(需要训练资源,推理侧收益 = 直接换小模型)。</li>
+<li>宽度剪枝精度更好,深度剪枝同参数量下延迟更低——按 SLO 选。</li>
+</ul>
+<hr/>
+<h2 id="-模型架构训练时就决定的加速">② 模型架构(训练时就决定的加速)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-模型架构训练时就决定的加速" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="21-注意力头共享gqa--mla">2.1 注意力头共享:GQA → MLA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#21-注意力头共享gqa--mla" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>方案</th><th>机制</th><th>收益</th><th>评级</th></tr></thead><tbody><tr><td>GQA</td><td>多 query 头共享一组 KV 头</td><td>KV cache 减 4–8×,Llama-2 70B 起业界标配</td><td>★★★</td></tr><tr><td>MLA</td><td>KV 低秩压缩为 latent 向量(DeepSeek-V2/V3)</td><td>KV cache 相对 MHA 减 <strong>~5×+</strong>,且精度优于 GQA</td><td>★★★(新模型)</td></tr></tbody></table></div>
+<h3 id="22-线性注意力--ssm-混合架构">2.2 线性注意力 / SSM 混合架构<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#22-线性注意力--ssm-混合架构" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:Mamba 类 SSM 层的”KV”是固定大小状态,不随序列长度增长;混合架构按 ~7:1 混入少量 attention 层保住精度。</p>
+<ul>
+<li>Jamba(AI21):Mamba:Attention ≈ 7:1 + MoE,52B 总参/12B 激活,256K 上下文,长序列吞吐最高 <strong>~3–5× 同规模 Transformer</strong>、显存占用大幅低(<a href="https://www.ai21.com/blog/announcing-jamba/" class="external">AI21<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>, <a href="https://proceedings.iclr.cc/paper_files/paper/2025/file/a9ed43fa31dc8b4a7d7a673d713dcb5f-Paper-Conference.pdf" class="external">ICLR’25<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)。</li>
+<li>同显存预算可开更大 batch → 直接降低每请求服务成本。2025 年后 NVIDIA Nemotron-H、IBM Granite 4.0 等相继采用混合路线。</li>
+<li>评级 ★★:架构本身成熟,但生态(投机解码、prefix caching 等与 SSM 状态的兼容)仍在补课。</li>
+</ul>
+<h3 id="23-moe稀疏激活">2.3 MoE(稀疏激活)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#23-moe稀疏激活" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:每 token 只激活少数专家,推理 FLOPs 按激活参数算(DeepSeek-V3 671B 总参/37B 激活)。加速本质是”同能力下少算”,代价是显存仍要装下全部专家 + EP 并行通信。评级 ★★★(前沿模型主流形态)。</p>
+<h3 id="24-稀疏注意力训练原生">2.4 稀疏注意力(训练原生)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#24-稀疏注意力训练原生" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:attention 只算被选中的 block,而且<strong>从预训练起就稀疏</strong>(区别于推理期近似),长上下文的 prefill 和 decode 同时受益。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>方案</th><th>代表工作</th><th>收益</th><th>评级</th></tr></thead><tbody><tr><td>NSA(层次压缩+块选择+滑窗三分支)</td><td>DeepSeek (arXiv:2502.11089)</td><td>64K 序列:前向 ~9×、反向 ~6×(vs FlashAttention-2),精度持平或更好</td><td>★★</td></tr><tr><td>MoBA(块级 MoE 路由注意力)</td><td>Kimi/Moonshot,已在 Kimi 生产</td><td>长序列处理最高 ~5×,已有生产验证</td><td>★★</td></tr><tr><td>DSA(轻量索引器选 token)</td><td>DeepSeek-V3.2</td><td>长上下文 API 成本降约一半(官方降价折算)</td><td>★★</td></tr></tbody></table></div>
+<h3 id="25-多-token-预测mtp">2.5 多 token 预测(MTP)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#25-多-token-预测mtp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:训练时加轻量头预测未来第 2+ 个 token,推理时天然充当”自带草稿模型”做投机解码。</p>
+<ul>
+<li>DeepSeek-V3:第二 token 接受率 <strong>85–90%</strong>,换来生成吞吐 <strong>~1.8×</strong>(<a href="https://arxiv.org/pdf/2412.19437" class="external">DeepSeek-V3 Tech Report<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)。GLM-4.5/GLM-5 同样采用。</li>
+<li>评级 ★★★(对采用了 MTP 的模型是免费加速;旧模型无法追加)。</li>
+</ul>
+<hr/>
+<h2 id="-解码算法">③ 解码算法<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-解码算法" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="31-投机解码谱系">3.1 投机解码谱系<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31-投机解码谱系" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:便宜的”草稿”猜 N 个 token,目标模型一次前向并行验证,输出分布严格无损。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>方案</th><th>草稿来源</th><th>收益</th><th>评级</th></tr></thead><tbody><tr><td>独立小模型草稿</td><td>原始 speculative decoding</td><td>~2×,但要维护配套小模型</td><td>★★</td></tr><tr><td>Medusa(多解码头)</td><td>模型自带多头</td><td>~2.2–2.8×,有损变体需谨慎</td><td>★★</td></tr><tr><td>EAGLE-3</td><td>特征层自回归草稿头</td><td>接受率 0.80–0.88,<strong>2–6.5×</strong>(batch 越小越赚),vLLM/SGLang 内置</td><td>★★★</td></tr><tr><td>MTP 复用(见 2.5)</td><td>训练时自带</td><td>~1.8×,零额外组件</td><td>★★★</td></tr><tr><td>Prompt lookup / n-gram</td><td>从上下文里抄</td><td>免训练,改写/摘要类任务 2–4×,通用任务无效</td><td>★★★(特定场景)</td></tr><tr><td>LongSpec</td><td>长上下文专用草稿</td><td>>32K 场景仍保持加速(普通草稿头此时失效)</td><td>★</td></tr></tbody></table></div>
+<p>关键工程事实:投机解码收益与 batch size 负相关——大 batch 下 GPU 已被填满,验证的并行度红利消失。在线低延迟场景最赚,离线大吞吐场景可能为负收益。</p>
+<h3 id="32-扩散语言模型换掉自回归本身">3.2 扩散语言模型(换掉自回归本身)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#32-扩散语言模型换掉自回归本身" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>机制:所有 token 一次生成、多轮去噪并行精化,彻底绕开逐 token 串行瓶颈。</p>
+<ul>
+<li>Mercury 2(Inception Labs,2026-02):<strong>~1,009 tok/s</strong>(Blackwell),约为速度优化过的自回归模型的 5×;复杂推理基准落后 5–15%,结构化输出/翻译类任务持平(<a href="https://www.businesswire.com/news/home/20260224034496/en/" class="external">BusinessWire<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>, <a href="https://arxiv.org/pdf/2506.17298" class="external">arXiv:2506.17298<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)。</li>
+<li>Gemini Diffusion(Google,2025-05):<strong>~1,479 tok/s</strong>,约 5× Gemini 2.0 Flash Lite;字节 Seed Diffusion 同路线(arXiv:2508.02193)。</li>
+<li>评级 ★:速度数字惊人,但质量差距和生态(工具调用、流式、缓存)未收敛。值得跟踪,暂不押注。</li>
+</ul>
+<hr/>
+<h2 id="-运行时调度">④ 运行时调度<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-运行时调度" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>方案</th><th>机制</th><th>收益</th><th>评级</th></tr></thead><tbody><tr><td>Continuous batching</td><td>请求级 → 迭代级调度,完成即补位</td><td>相对静态 batching 最高 <strong>~23×</strong> 吞吐(Anyscale 实测)</td><td>★★★(一切的地基)</td></tr><tr><td>Chunked prefill</td><td>长 prompt 切块与 decode 混排</td><td>消除 decode 卡顿,P99 TPOT 大幅改善</td><td>★★★</td></tr><tr><td>PagedAttention</td><td>KV 分页管理,消灭预分配碎片</td><td>KV 显存浪费从 60–80% → <strong>&lt;4%</strong>,vLLM 立身之作</td><td>★★★</td></tr><tr><td>Prefix caching / RadixAttention</td><td>前缀树复用共享 KV(SGLang)</td><td>多轮对话/agent/少样本场景 TTFT 数倍改善</td><td>★★★</td></tr><tr><td>PD 分离</td><td>prefill 与 decode 分池部署(Dynamo/Mooncake)</td><td>消除相互干扰,goodput 提升;<strong>但 arXiv:2506.05508 给出反例:中小规模下收益可为负</strong></td><td>★★(大规模才值)</td></tr><tr><td>KV offload(LMCache)</td><td>KV 下沉 CPU/SSD/远端,跨请求跨节点复用</td><td>2026-01 生产毕业(GKE/CoreWeave/Cohere);多轮/RAG 场景吞吐最高 <strong>15×</strong>,MoE 场景 TTFT 平均降 <strong>~13×</strong>(官方数字,场景强依赖缓存命中率)</td><td>★★</td></tr><tr><td>SLO 感知调度</td><td>按 TTFT/TPOT 目标动态调 batch 与准入</td><td>goodput(达标吞吐)取代原始吞吐成为正确指标</td><td>★★</td></tr></tbody></table></div>
+<h3 id="api-侧对应物context-caching-定价">API 侧对应物:context caching 定价<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#api-侧对应物context-caching-定价" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>供应商把 prefix caching 直接产品化:Anthropic cache 读取按 0.1× input 价、DeepSeek 缓存命中约 1/10 价、Gemini 有显式 context caching。对 agent 类长系统提示词负载,<strong>账单层面就是 5–10× 降本</strong>——这是普通用户能”免费”吃到的推理加速。评级 ★★★。</p>
+<hr/>
+<h2 id="-kernel--编译层">⑤ Kernel / 编译层<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-kernel--编译层" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>方案</th><th>机制</th><th>收益</th><th>评级</th></tr></thead><tbody><tr><td>FlashAttention-3</td><td>Hopper 上 warp 专化 + TMA 异步 + FP8 块量化</td><td>vs FA-2 <strong>1.5–2×</strong>;H100 利用率 35% → <strong>75%</strong>(FP16 740 TFLOPs),FP8 近 1.2 PFLOPs 且误差比基线 FP8 小 2.6×(<a href="https://tridao.me/blog/2024/flash3/" class="external">Tri Dao<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</td><td>★★★</td></tr><tr><td>FlashInfer</td><td>推理专用 attention kernel 库(可变长度/分页 KV/投机验证一体)</td><td>vLLM/SGLang 后端之一,MLSys’25 最佳论文</td><td>★★★</td></tr><tr><td>DeepGEMM</td><td>DeepSeek 开源 FP8 GEMM,JIT 生成,细粒度缩放</td><td>Hopper 上 FP8 矩阵乘打满,V3 训推同源</td><td>★★</td></tr><tr><td>CUDA Graphs</td><td>整段 decode 计算图一次下发</td><td>消 kernel launch 开销,小 batch decode 提升 20–50%,主流框架默认开</td><td>★★★</td></tr><tr><td>torch.compile</td><td>图捕获 + Inductor 融合算子</td><td>通用 1.3–2×,vLLM V1 已深度集成</td><td>★★★</td></tr><tr><td>通信计算重叠</td><td>micro-batch 间隐藏 all-reduce/all-to-all</td><td>MoE/EP 场景关键,DeepSeek DualPipe 思路同源</td><td>★★</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-并行策略">⑥ 并行策略<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-并行策略" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>策略</th><th>切什么</th><th>适用</th><th>关键约束</th></tr></thead><tbody><tr><td>TP 张量并行</td><td>单层矩阵切列/行</td><td>单机 8 卡内,降延迟首选</td><td>每层两次 all-reduce,跨机即死于通信</td></tr><tr><td>PP 流水并行</td><td>按层切段</td><td>跨机扩容</td><td>bubble 浪费,batch 要够大</td></tr><tr><td>EP 专家并行</td><td>MoE 专家分卡</td><td>DeepSeek/GLM 类 MoE 必需</td><td>all-to-all 通信,负载均衡是命门</td></tr><tr><td>SP 序列并行</td><td>按序列维切</td><td>超长上下文 prefill</td><td>与 attention 实现耦合深</td></tr><tr><td>DP attention</td><td>attention 部分数据并行(SGLang 对 MLA 的做法)</td><td>MLA 模型:KV 太小,TP 切 KV 反而浪费</td><td>模型结构特定</td></tr></tbody></table></div>
+<p>经验法则:<strong>单机内 TP,跨机 PP,MoE 加 EP,长文加 SP</strong>;并行是”装得下/够快”的手段,本身不减少计算量。评级整体 ★★★(框架内置)。</p>
+<hr/>
+<h2 id="-长上下文专项kv-cache-三条战线">⑦ 长上下文专项(KV cache 三条战线)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-长上下文专项kv-cache-三条战线" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>KV cache 是长上下文唯一的敌人:128K 上下文的 70B 模型,KV 可以比权重还大。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>战线</th><th>方案</th><th>机制与收益</th><th>评级</th></tr></thead><tbody><tr><td>量化</td><td>FP8/INT4 KV(见 1.3)</td><td>2–4×,质量最稳</td><td>★★★</td></tr><tr><td>驱逐</td><td>StreamingLLM(sink+滑窗)、<strong>H2O</strong>(累积注意力分选 heavy-hitter)、<strong>SnapKV</strong>(观察窗内池化打分,prefill 后即压)、R-KV</td><td>保 10–50% token,heavy-hitter 类在推理基准上显著优于其他驱逐法、偶尔反超全量 KV;但对<strong>推理型长思维链更脆弱</strong>,压缩率要保守</td><td>★★</td></tr><tr><td>检索式稀疏</td><td><strong>Quest</strong>(按 query 动态选相关 KV 页,不真删)</td><td>自注意力带宽降数倍且无信息永久丢失,长文 decode 加速 2–7×(论文数)</td><td>★★</td></tr><tr><td>下沉</td><td>LMCache/Mooncake(见 ④)</td><td>显存装不下就分层存储</td><td>★★</td></tr></tbody></table></div>
+<p>选型直觉:先量化(无脑),再检索式稀疏(不丢信息),驱逐类最后用且对 CoT 模型要格外小心。</p>
+<hr/>
+<h2 id="-硬件层">⑧ 硬件层<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-硬件层" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>硬件</th><th>机制</th><th>数字</th><th>评级</th></tr></thead><tbody><tr><td>H100/H200(Hopper)</td><td>FP8 原生 + TMA + 大 HBM</td><td>当前生产主力,FA-3/DeepGEMM 均为其而生</td><td>★★★</td></tr><tr><td>B200/GB200(Blackwell)</td><td>NVFP4 原生 + 第二代 Transformer Engine + NVLink72</td><td>官方称推理最高 ~30× GB200-NVL72 vs H100(极端配置营销口径,单卡代际实际 ~2–4×)</td><td>★★★</td></tr><tr><td>Groq LPU</td><td>全 SRAM 权重驻留,确定性流水</td><td>Llama-3 70B ~400–800 tok/s(单流),约 14× A100</td><td>★★(供应受限)</td></tr><tr><td>Cerebras WSE-3</td><td>晶圆级单芯片,90 万核 + 片上 SRAM</td><td>Llama-3.3 70B <strong>2,500+ tok/s</strong>,单流约 6× Groq(Artificial Analysis 独立测量)</td><td>★★</td></tr><tr><td>端侧 NPU</td><td>手机/PC 推理专用单元</td><td>功耗优势为主,吞吐有限;WSL2 下普遍不可用(本机已验证)</td><td>★</td></tr></tbody></table></div>
+<p>ASIC 的本质:用 SRAM 换 HBM,单流延迟碾压 GPU;但成本模型只在”低延迟溢价”场景成立,大吞吐离线场景 GPU 仍是性价比王。</p>
+<hr/>
+<h2 id="-推理框架全景">⑨ 推理框架全景<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-推理框架全景" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>框架</th><th>定位</th><th>强项</th><th>何时选</th></tr></thead><tbody><tr><td>vLLM</td><td>事实标准</td><td>PagedAttention、生态最全、模型日跟进</td><td><strong>默认选它</strong></td></tr><tr><td>SGLang</td><td>高性能挑战者</td><td>RadixAttention 前缀复用、DP attention(MLA)、结构化输出</td><td>共享前缀重(agent/多轮)、DeepSeek 系模型</td></tr><tr><td>TensorRT-LLM</td><td>NVIDIA 极致优化</td><td>编译期全图优化、FP8/FP4 最深支持</td><td>模型冻结 + N 卡 + 追求最后 20%</td></tr><tr><td>Dynamo</td><td>数据中心编排层</td><td>PD 分离、多引擎调度(下接 vLLM/SGLang/TRT)</td><td>集群规模 serving</td></tr><tr><td>llama.cpp</td><td>端侧/CPU</td><td>GGUF 量化生态、纯 C++ 零依赖、Apple Metal</td><td>本地单机、消费级硬件(含本机 8GB 卡)</td></tr><tr><td>MLC-LLM</td><td>编译到万物</td><td>TVM 编译,Vulkan/Metal/OpenCL/手机</td><td>非 CUDA 异构端侧;CPU 场景成熟度仍不如 llama.cpp</td></tr><tr><td>ollama</td><td>llama.cpp 的易用壳</td><td>一行命令跑模型</td><td>个人快速体验</td></tr></tbody></table></div>
+<hr/>
+<h2 id="10-一张表收尾按目标选技术">10. 一张表收尾:按目标选技术<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#10-一张表收尾按目标选技术" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>你的目标</th><th>首选组合</th></tr></thead><tbody><tr><td>降 TTFT(首字快)</td><td>prefix caching + chunked prefill + FA-3;命中率高再加 LMCache</td></tr><tr><td>降 TPOT(生成快)</td><td>FP8/INT4 权重量化 + 投机解码(EAGLE-3/MTP)+ CUDA Graphs</td></tr><tr><td>提吞吐降成本</td><td>continuous batching + FP8 全程 + 大 batch(此时<strong>关掉</strong>投机解码)</td></tr><tr><td>长上下文</td><td>MLA/GQA 模型 + KV FP8 + Quest 类稀疏 + LMCache 下沉</td></tr><tr><td>单流极致低延迟</td><td>Cerebras/Groq ASIC,或小模型 + 投机解码</td></tr><tr><td>本机 8GB 卡</td><td>llama.cpp/ollama + Q4 GGUF(与 <a href="../../corpus/research/本机RL训练方案_2026-07" class="internal alias" data-slug="corpus/research/本机RL训练方案_2026-07">本机RL训练方案_2026-07</a> 互补:训练用 HF 栈,推理用 GGUF)</td></tr><tr><td>不改部署白拿降本</td><td>API context caching(Anthropic 0.1× 缓存读、DeepSeek 命中 ~1/10 价)</td></tr></tbody></table></div>
+<h2 id="11-判断与展望">11. 判断与展望<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-判断与展望" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li><strong>量化是回报率之王</strong>:FP8 已是默认,NVFP4 是 2026 主升浪;剪枝论文多落地少,蒸馏本质是”造小模型”而非加速手段。</li>
+<li><strong>架构红利在向训练侧前移</strong>:MLA、NSA/MoBA、MTP 都是”训练时就把推理账算好”——推理加速正在从 serving 团队的事变成预训练团队的事。这与 <a href="../../GLM-5" class="internal" data-slug="GLM-5">GLM-5</a> / DeepSeek 的实践一致。</li>
+<li><strong>投机解码进入”模型自带”时代</strong>:独立草稿模型 → EAGLE 头 → MTP 内置,外挂式加速被吸收进模型本体。</li>
+<li><strong>KV cache 是长上下文时代的中心战场</strong>:量化/驱逐/检索稀疏/分层存储四线并进,LMCache 生产毕业标志着”KV 即资产”的基础设施化。</li>
+<li><strong>扩散 LM 是唯一可能改写游戏规则的变量</strong>:1,000+ tok/s 是数量级差异,盯 Mercury/Seed Diffusion 的质量收敛速度。</li>
+<li>用三元组框架看:这套体系的<strong>衡量标准已经统一为 goodput(SLO 达标吞吐)+ $/M tokens</strong>,谁的评估器快、谁能自动搜索配置空间(参见 AlphaEvolve 一节的讨论),谁就能持续吃到组合红利。</li>
+</ol>
+<hr/>
+<h2 id="主要来源">主要来源<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#主要来源" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>NSA: <a href="https://arxiv.org/abs/2502.11089" class="external">arXiv:2502.11089<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · MoBA/Kimi: <a href="https://www.news9live.com/technology/artificial-intelligence/kimi-moba-ai-long-context-processing-explained-2824688" class="external">news9<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://blog.tilderesearch.com/blog/sparse-attn" class="external">Tilde: Sparsity is Cool<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Jamba: <a href="https://www.ai21.com/blog/announcing-jamba/" class="external">AI21 官宣<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://proceedings.iclr.cc/paper_files/paper/2025/file/a9ed43fa31dc8b4a7d7a673d713dcb5f-Paper-Conference.pdf" class="external">ICLR’25 Hybrid Transformer-Mamba<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>MTP: <a href="https://arxiv.org/pdf/2412.19437" class="external">DeepSeek-V3 Tech Report<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://sebastianraschka.com/llm-architecture-gallery/mtp/" class="external">Raschka MTP 解读<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>剪枝: <a href="https://arxiv.org/abs/2301.00774" class="external">SparseGPT<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://arxiv.org/abs/2306.11695" class="external">Wanda<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://company.hpc-ai.com/blog/explore-24-semi-structured-sparsity-with-1.27x-inference-speedup-on-nvidia-gpus" class="external">2:4 端到端 1.27×<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>蒸馏: <a href="https://arxiv.org/abs/2408.11796" class="external">Minitron, arXiv:2408.11796<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>扩散 LM: <a href="https://www.businesswire.com/news/home/20260224034496/en/" class="external">Mercury 2 发布<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://arxiv.org/pdf/2506.17298" class="external">Mercury arXiv:2506.17298<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://arxiv.org/pdf/2508.02193" class="external">Seed Diffusion arXiv:2508.02193<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>KV 压缩: <a href="https://arxiv.org/html/2512.12008v1" class="external">推理任务上的 KV 压缩评测 arXiv:2512.12008<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems/" class="external">NVIDIA: KV Cache Compression and Its Infra Problems<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>LMCache: <a href="https://arxiv.org/abs/2510.09665" class="external">arXiv:2510.09665<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://github.com/LMCache/LMCache" class="external">GitHub<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://blog.lmcache.ai/en/2026/04/03/lmcaches-new-architecture-boosts-moe-inference-performance-by-10x/" class="external">MoE 10× 博客<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>FA-3: <a href="https://arxiv.org/abs/2407.08608" class="external">arXiv:2407.08608<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://tridao.me/blog/2024/flash3/" class="external">Tri Dao blog<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>ASIC: <a href="https://speko.ai/benchmark/groq-vs-cerebras" class="external">Cerebras vs Groq(Artificial Analysis 数据)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://www.cerebras.ai/blog/cerebras-cs-3-vs-groq-lpu" class="external">Cerebras 官方博客<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>(注意厂商口径)</li>
+<li>端侧: <a href="https://www.emergentmind.com/topics/llama-cpp" class="external">llama.cpp 概览<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> · <a href="https://arxiv.org/pdf/2508.11269" class="external">边缘 LLM 评测 arXiv:2508.11269<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>其余(continuous batching 23×、PagedAttention &lt;4%、EAGLE-3、PD 分离反例 arXiv:2506.05508 等)见前篇 <a href="../../corpus/research/大模型推理加速技术调研_2026-07" class="internal alias" data-slug="corpus/research/大模型推理加速技术调研_2026-07">大模型推理加速技术调研_2026-07</a> 的来源列表。</li>
+</ul>
+<p><em>厂商自报数字(NVIDIA 30×、LMCache 15×、Cerebras 20× GPU 等)均已标注,应按营销口径打折理解;独立复现数据优先采信。</em></p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-2" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#大模型推理加速技术全景" data-for="大模型推理加速技术全景">大模型推理加速技术全景</a></li><li class="depth-1"><a href="#0-技术地图总览" data-for="0-技术地图总览">0. 技术地图总览</a></li><li class="depth-1"><a href="#-模型压缩" data-for="-模型压缩">① 模型压缩</a></li><li class="depth-2"><a href="#11-权重量化weight-only" data-for="11-权重量化weight-only">1.1 权重量化(weight-only)</a></li><li class="depth-2"><a href="#12-激活量化w8a8--w4a4" data-for="12-激活量化w8a8--w4a4">1.2 激活量化(W8A8 / W4A4)</a></li><li class="depth-2"><a href="#13-kv-cache-量化" data-for="13-kv-cache-量化">1.3 KV cache 量化</a></li><li class="depth-2"><a href="#14-剪枝--稀疏" data-for="14-剪枝--稀疏">1.4 剪枝 / 稀疏</a></li><li class="depth-2"><a href="#15-蒸馏结构性压缩" data-for="15-蒸馏结构性压缩">1.5 蒸馏(结构性压缩)</a></li><li class="depth-1"><a href="#-模型架构训练时就决定的加速" data-for="-模型架构训练时就决定的加速">② 模型架构(训练时就决定的加速)</a></li><li class="depth-2"><a href="#21-注意力头共享gqa--mla" data-for="21-注意力头共享gqa--mla">2.1 注意力头共享:GQA → MLA</a></li><li class="depth-2"><a href="#22-线性注意力--ssm-混合架构" data-for="22-线性注意力--ssm-混合架构">2.2 线性注意力 / SSM 混合架构</a></li><li class="depth-2"><a href="#23-moe稀疏激活" data-for="23-moe稀疏激活">2.3 MoE(稀疏激活)</a></li><li class="depth-2"><a href="#24-稀疏注意力训练原生" data-for="24-稀疏注意力训练原生">2.4 稀疏注意力(训练原生)</a></li><li class="depth-2"><a href="#25-多-token-预测mtp" data-for="25-多-token-预测mtp">2.5 多 token 预测(MTP)</a></li><li class="depth-1"><a href="#-解码算法" data-for="-解码算法">③ 解码算法</a></li><li class="depth-2"><a href="#31-投机解码谱系" data-for="31-投机解码谱系">3.1 投机解码谱系</a></li><li class="depth-2"><a href="#32-扩散语言模型换掉自回归本身" data-for="32-扩散语言模型换掉自回归本身">3.2 扩散语言模型(换掉自回归本身)</a></li><li class="depth-1"><a href="#-运行时调度" data-for="-运行时调度">④ 运行时调度</a></li><li class="depth-2"><a href="#api-侧对应物context-caching-定价" data-for="api-侧对应物context-caching-定价">API 侧对应物:context caching 定价</a></li><li class="depth-1"><a href="#-kernel--编译层" data-for="-kernel--编译层">⑤ Kernel / 编译层</a></li><li class="depth-1"><a href="#-并行策略" data-for="-并行策略">⑥ 并行策略</a></li><li class="depth-1"><a href="#-长上下文专项kv-cache-三条战线" data-for="-长上下文专项kv-cache-三条战线">⑦ 长上下文专项(KV cache 三条战线)</a></li><li class="depth-1"><a href="#-硬件层" data-for="-硬件层">⑧ 硬件层</a></li><li class="depth-1"><a href="#-推理框架全景" data-for="-推理框架全景">⑨ 推理框架全景</a></li><li class="depth-1"><a href="#10-一张表收尾按目标选技术" data-for="10-一张表收尾按目标选技术">10. 一张表收尾:按目标选技术</a></li><li class="depth-1"><a href="#11-判断与展望" data-for="11-判断与展望">11. 判断与展望</a></li><li class="depth-1"><a href="#主要来源" data-for="主要来源">主要来源</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-2" class="overflow"><li><a href="../../" class="internal">首页</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>
