@@ -1,6 +1,11 @@
 {
  "docs": [
   {
+   "title": "垂域数据清洗与合成调研 2026-07",
+   "date": "2026-07",
+   "link": "./garden/corpus/research/垂域数据清洗与合成调研_2026-07"
+  },
+  {
    "title": "大模型推理加速技术全景 2026-07",
    "date": "2026-07",
    "link": "./garden/corpus/research/大模型推理加速技术全景_2026-07"
