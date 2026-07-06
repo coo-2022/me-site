@@ -1,6 +1,11 @@
 {
  "docs": [
   {
+   "title": "RL环境合成方法调研 2026-07",
+   "date": "2026-07",
+   "link": "./garden/corpus/research/RL环境合成方法调研_2026-07"
+  },
+  {
    "title": "垂域数据清洗与合成调研 2026-07",
    "date": "2026-07",
    "link": "./garden/corpus/research/垂域数据清洗与合成调研_2026-07"
