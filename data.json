@@ -1,6 +1,11 @@
 {
  "docs": [
   {
+   "title": "业界RL基建与技术报告地图 2026-07",
+   "date": "2026-07",
+   "link": "./garden/corpus/research/业界RL基建与技术报告地图_2026-07"
+  },
+  {
    "title": "RL环境合成方法调研 2026-07",
    "date": "2026-07",
    "link": "./garden/corpus/research/RL环境合成方法调研_2026-07"
@@ -16,11 +21,6 @@
    "link": "./garden/corpus/research/大模型推理加速技术全景_2026-07"
   },
   {
-   "title": "本机RL训练方案 2026-07",
-   "date": "2026-07",
-   "link": "./garden/corpus/research/本机RL训练方案_2026-07"
-  },
-  {
    "title": "大模型推理加速技术调研 2026-07",
    "date": "2026-07",
    "link": "./garden/corpus/research/大模型推理加速技术调研_2026-07"
@@ -31,14 +31,19 @@
    "link": "./garden/corpus/research/未来RL规模与算力趋势_2026-06"
   },
   {
-   "title": "强化学习研究热点调研 2026-06",
-   "date": "2026-06",
-   "link": "./garden/corpus/research/强化学习研究热点调研_2026-06"
+   "title": "本机RL训练方案 2026-07",
+   "date": "2026-07",
+   "link": "./garden/corpus/research/本机RL训练方案_2026-07"
   },
   {
    "title": "AReaL 2.0 自演进能力解读 2026-07",
    "date": "2026-07",
    "link": "./garden/corpus/research/AReaL_2.0_自演进能力解读_2026-07"
+  },
+  {
+   "title": "强化学习研究热点调研 2026-06",
+   "date": "2026-06",
+   "link": "./garden/corpus/research/强化学习研究热点调研_2026-06"
   },
   {
    "title": "后训练基础设施调研 2026-06",
